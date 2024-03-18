@@ -1,7 +1,7 @@
 import csv
 from datetime import datetime
 
-from pep_parse.settings import BASE_DIR
+from .settings import BASE_DIR
 
 
 class PepParsePipeline:
@@ -20,7 +20,7 @@ class PepParsePipeline:
 
         with open(path, mode='w', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(['Статус', 'Количество'])
+            writer.writerow(['status', 'quantity'])
             writer.writerows(self.status_count.items())
 
             total = sum(self.status_count.values())
